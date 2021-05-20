@@ -1,4 +1,4 @@
-package com.Lindsy.board5.board;
+package com.koreait.board5.board;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,24 +6,30 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.Lindsy.board5.DBUtils;
+import com.koreait.board5.DBUtils;
 
 public class BoardDAO {
-	public static List<BoardVO> selBoardList() {
+	public static List<BoardVO> selBoardList(BoardVO param) {
 		List<BoardVO> list = new ArrayList();
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		String sql = "select A.iboard, A.title, A.iuser, A.regdt, B.unm"
-				+ " from t_board A"
-				+ " inner join t_user B"
-				+ " on A.iuser = B.iuser"
-				+ " order by iboard desc";
+		String sql = "SELECT A.iboard, A.title, A.iuser, A.regdt, B.unm"
+				+ ", if(C.iboard IS NULL, 0, 1) AS isFav "
+				+ " FROM t_board A "
+				+ " INNER join t_user B "
+				+ " ON A.iuser = B.iuser "
+				+ " LEFT JOIN t_board_fav C "
+				+ " ON A.iboard = C.iboard "
+				+ " AND C.iuser = ? "
+				+ " ORDER BY iboard DESC";
 		
 		try {
 			con = DBUtils.getCon();
 			ps = con.prepareStatement(sql);
+			ps.setInt(1, param.getIuser()); //로그인 user PK
+			ps.setInt(2, param.getIboard());
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
@@ -56,7 +62,7 @@ public class BoardDAO {
 				+ " FROM t_board A "
 				+ " INNER JOIN t_user B "
 				+ " ON A.iuser = B.iuser "
-				+ " WHER A.iboard = ? ";
+				+ " WHERE A.iboard = ? ";
 		
 		try {
 			con = DBUtils.getCon();
@@ -80,19 +86,26 @@ public class BoardDAO {
 		}
 		return result;
 	}
-	public static int insertBoard() {
+	public static int insertBoard(BoardVO param) {
 		Connection con = null;
 		PreparedStatement ps = null;
-		ResultSet rs = null;
 		
-		String sql = "INSERT INTO";
+		String sql = "INSERT INTO t_board (title, ctnt, iuser) "
+				+ " VALUES (?, ?, ?)";
 		
 		try {
 			con = DBUtils.getCon();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, param.getTitle());
+			ps.setString(2, param.getCtnt());
+			ps.setInt(3, param.getIuser());
+			
+			return ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
+			return 0;
 		} finally {
-			DBUtils.close(con, ps, rs);
+			DBUtils.close(con, ps);
 		}
 		
 	}

@@ -1,4 +1,4 @@
-package com.Lindsy.board5.cmt;
+package com.koreait.board5.cmt;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.Lindsy.board5.DBUtils;
+import com.koreait.board5.DBUtils;
 
 public class CmtDAO {
 	public static void insCmt(CmtVO param) {
@@ -88,7 +88,7 @@ public class CmtDAO {
 			DBUtils.close(con, ps);
 		}
 	}
-	public static void udtCmt(CmtVO param) {
+	public static void updCmt(CmtVO param) {
 		
 		
 	}

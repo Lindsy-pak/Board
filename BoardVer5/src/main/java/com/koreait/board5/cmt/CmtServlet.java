@@ -1,4 +1,4 @@
-package com.Lindsy.board5.cmt;
+package com.koreait.board5.cmt;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.Lindsy.board5.MyUtils;
+import com.koreait.board5.MyUtils;
 
 @WebServlet("/board/cmt")
 public class CmtServlet extends HttpServlet {

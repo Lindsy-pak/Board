@@ -128,10 +128,14 @@
 			</tr>
 		</table>
 		<div id="button">
-			<span><a href="/board/list"><input type="button" value="Login"></a></span>
+			<span onclick="moveToBack()"><input type="button" value="Back"></span>
 			<span><a href="/user/join"><input type="button" value="Join"></a></span>
 		</div>
 	</div>
-
+	<script>
+		function moveToBack() {
+			history.back();
+		}
+	</script>
 </body>
 </html>

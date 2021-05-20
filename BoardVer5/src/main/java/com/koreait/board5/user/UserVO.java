@@ -1,4 +1,4 @@
-package com.Lindsy.board5.user;
+package com.koreait.board5.user;
 
 public class UserVO {
 	private int iuser;

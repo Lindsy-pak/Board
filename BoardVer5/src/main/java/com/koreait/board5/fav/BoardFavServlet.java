@@ -1,4 +1,4 @@
-package com.Lindsy.board5.board;
+package com.koreait.board5.fav;
 
 import java.io.IOException;
 
@@ -7,23 +7,26 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.Lindsy.board5.MyUtils;
+import com.koreait.board5.MyUtils;
 
-@WebServlet("/board/list")
-public class BoardListServlet extends HttpServlet {
+@WebServlet("/board/fav")
+public class BoardFavServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession hs = request.getSession();
-		if(hs.getAttribute("loginUser") ==  null) {
-			response.sendRedirect("/user/login");
-			return;
-		}
+		int iboard = MyUtils.getParamInt("iboard", request);
+		int iuser = MyUtils.getLoginUserPk(request);
 		
-		request.setAttribute("list", BoardDAO.selBoardList());
-		MyUtils.openJSP("/board/list" , request, response);
+		int fav = MyUtils.getParamInt("fav", request);
+		switch(fav) {
+		case 0: //좋아요 취소 (delete)
+			FavDAO.delFav(iboard, iuser);
+			break;
+		case 1: //좋아요 처리 (insert)
+			FavDAO.insFav(iboard, iuser);
+			break;
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

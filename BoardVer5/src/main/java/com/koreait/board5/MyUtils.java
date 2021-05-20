@@ -1,4 +1,4 @@
-package com.Lindsy.board5;
+package com.koreait.board5;
 
 import java.io.IOException;
 
@@ -6,7 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import com.Lindsy.board5.user.UserVO;
+
+import com.koreait.board5.user.UserVO;
 
 public class MyUtils {
 	public static void openJSP(String fileNm, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

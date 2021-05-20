@@ -1,4 +1,5 @@
-package com.Lindsy.board5.user;
+package com.koreait.board5.user;
+
 
 import java.io.IOException;
 
@@ -11,7 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-import com.Lindsy.board5.MyUtils;
+import com.koreait.board5.MyUtils;
+
 
 @WebServlet("/user/login")
 public class UserLoginServlet extends HttpServlet {
@@ -31,7 +33,6 @@ public class UserLoginServlet extends HttpServlet {
 		UserVO vo = new UserVO();
 		vo.setUid(uid);
 		
-
 		UserVO result = UserDAO.selUser(vo);
 		if (result == null) { // 아이디 없음
 			request.setAttribute("errMsg", "아이디를 확인 해 주세요");

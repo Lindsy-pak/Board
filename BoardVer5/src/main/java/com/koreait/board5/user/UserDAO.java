@@ -1,11 +1,12 @@
-package com.Lindsy.board5.user;
+package com.koreait.board5.user;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
-import com.Lindsy.board5.DBUtils;
+import com.koreait.board5.DBUtils;
+
+
 
 public class UserDAO {
 	public static UserVO selUser(UserVO param) { //user의 정보를 가져옴 

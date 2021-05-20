@@ -1,4 +1,4 @@
-package com.Lindsy.board5.cmt;
+package com.koreait.board5.cmt;
 
 public class CmtVO {
 	private int icmt;

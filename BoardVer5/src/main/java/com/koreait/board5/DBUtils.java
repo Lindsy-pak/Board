@@ -1,4 +1,4 @@
-package com.Lindsy.board5;
+package com.koreait.board5;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
