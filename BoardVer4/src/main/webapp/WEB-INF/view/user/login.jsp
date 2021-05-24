@@ -55,9 +55,9 @@ a {
 }
 
 .errMsg {
-	color: red
+	color: red;
 }
-;
+
 </style>
 </head>
 <body>
