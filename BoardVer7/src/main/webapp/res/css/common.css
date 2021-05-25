@@ -20,3 +20,12 @@ header nav ul li {
 	margin-left: 20px;
 	color: #fff;
 }
+
+.colorRed {
+	color: red;
+}
+
+section {
+  	padding-left: 40px; 
+	padding-right: 40px;  
+}
