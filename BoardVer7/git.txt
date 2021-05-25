@@ -1,0 +1,1 @@
+git - remote - 밑 화살표 - configure Fetch - Advanced - remove - sorce ref:Main Branch - Branches - Local - 우클릭 push branch - proview - merge???
