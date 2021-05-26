@@ -64,7 +64,11 @@ Key : user.name / Value : 내 이름 - apply
 git에서 파일 불러와서 작업하는 법 zip
 git에서 zip파일 다운로드 받는다. 
 이클립스에서 우클릭 import 
-
+-------------------------------------
+gson 라이브러리 설치 
+-------------------------------------
+git 서버 내렸다가 다시 올리기 
+git환경 클릭 - 연결한 깃 파일 더블클릭 remote클릭- origin - 초록색 아래 화살표 우클릭 - configure fetch - advanced - remove - Source ref - main [branch] - add spec -finish - save and fetch - branch 클릭 main 우클릭 merge - git file - push to origin
 
 컬러코: https://htmlcolorcodes.com/
 그라이언트: https://gradient.shapefactory.co/?a=1B00F5&b=F7B781&d=22
