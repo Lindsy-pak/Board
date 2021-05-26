@@ -8,16 +8,14 @@
 	</div>
 	<form action="login" method="post">
 		<div>
-			<p>
-				ID : <input type="text" name="uid" placeholder="아이디">
-			</p>
-			<p>
-				PW : <input type="password" name="upw" placeholder="비밀번호">
-			</p>
+			ID : <input type="text" name="uid" placeholder="아이디">
 		</div>
 		<div>
-			<span><input type="submit" value="Login"></span> <span><a
-				href="/user/join"><button>Join</button></a></span>
+			PW : <input type="password" name="upw" placeholder="비밀번호">
+		</div>
+		<div>
+			<span><input type="submit" value="Login"></span> 
 		</div>
 	</form>
+	<span><a href="/user/join"><button>Join</button></a></span>
 </div>

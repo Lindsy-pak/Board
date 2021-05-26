@@ -37,42 +37,43 @@ public class UserDAO {
 		return result;
 
 	}
-	public static UserEntity selUser(UserEntity vo) {
+
+	public static UserEntity selUser(UserEntity param) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		UserEntity result = null;
-
+		UserEntity result  = null;
+		
 		String sql = "SELECT iuser, uid, upw, unm FROM t_user WHERE uid = ?";
-
-		try {
+		
+		try { 
 			con = DBUtils.getCon();
 			ps = con.prepareStatement(sql);
-			ps.setString(1, vo.getUid());
-
+			ps.setString(1, param.getUid());
 			rs = ps.executeQuery();
-
-			if (rs.next()) {
+			//if인 이유 : 로그인 할때만 실행되기 때문?
+			if(rs.next()) {
 				int iuser = rs.getInt("iuser");
-				String uid = rs.getString("uid");
+				String uid = rs.getString("uid"); 
 				String upw = rs.getString("upw");
 				String unm = rs.getString("unm");
-
+				
 				result = new UserEntity();
-
 				result.setIuser(iuser);
 				result.setUid(uid);
 				result.setUpw(upw);
 				result.setUnm(unm);
+				return result;
 			}
-			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return result;
 		} finally {
 			DBUtils.close(con, ps, rs);
 		}
+		return result;
 	}
+	
 	public static int insertUser(UserEntity vo) {
 		Connection con = null;
 		PreparedStatement ps = null;

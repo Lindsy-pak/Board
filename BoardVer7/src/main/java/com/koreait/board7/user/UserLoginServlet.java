@@ -33,11 +33,11 @@ public class UserLoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String uid = request.getParameter("uid");
 		String upw = request.getParameter("upw");
-		UserEntity vo = new UserEntity();
+		UserEntity param = new UserEntity(); //UserVO
 
-		vo.setUid(uid);
+		param.setUid(uid);
 
-		UserEntity result = UserDAO.selUser(vo);
+		UserEntity result = UserDAO.selUser(param);
 		if (result == null) { // 아이디 없음
 			request.setAttribute("errMsg", "아이디를 확인 해 주세요");
 			// 에러메세지를 확인함

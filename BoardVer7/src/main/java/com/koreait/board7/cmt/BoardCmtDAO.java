@@ -20,7 +20,8 @@ public class BoardCmtDAO {
 				+ " FROM t_board_cmt A "
 				+ " INNER JOIN t_user B "
 				+ " ON A.iuser = B.iuser "
-				+ " WHERE A.iboard = ? ";
+				+ " WHERE A.iboard = ? "
+				+ " ORDER BY A.icmt ASC "; //댓글은 보통 최신댓글이 가장 밑에 달린다.
 		
 		try {
 			con = DBUtils.getCon();
@@ -45,6 +46,14 @@ public class BoardCmtDAO {
 			DBUtils.close(con, ps, rs);
 		}
 		return list;
+	}
+	public static int delBoardCmt(BoardCmtEntity param) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		String sql = "DELETE FROM t_board_cmt WHERE ?";
+		
 		
 		
 		

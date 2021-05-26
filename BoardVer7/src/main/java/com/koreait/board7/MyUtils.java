@@ -28,6 +28,7 @@ public class MyUtils {
 		return intVal;
 	}
 	
+	//사용자로 부터 받아온 값을 int형으로 바꿔주는 메소드
 	public static int parseStringToInt(String val) {
 		try {
 			int result = Integer.parseInt(val);

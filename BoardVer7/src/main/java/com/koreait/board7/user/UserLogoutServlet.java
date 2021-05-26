@@ -16,7 +16,8 @@ public class UserLogoutServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		/*
-		 * HttpSession hs = request.getSession(); hs.invalidate();
+		 * HttpSession hs = request.getSession(); 
+		 * hs.invalidate();
 		 * response.sendRedirect("user/login");
 		 */
 		
